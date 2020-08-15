@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,KACE,sBAAuB,CACvB,iBACF,CAEA,UACE,SACF,CAEA,IACE,0BAA4B,CAC5B,WACF","file":"main.bb38f913.chunk.css","sourcesContent":[".App {\n  font-family: sans-serif;\n  text-align: center;\n}\n\n.font-red {\n  color: red;\n}\n\n.vl {\n  border-left: 3px solid black;\n  height: 35em;\n}\n"]}

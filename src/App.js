@@ -108,7 +108,6 @@ class EstimatePrice extends Component {
       lining_one_mtr_length_in_inches,
       lining_one_mtr_width_in_inches,
       lining_one_mtr_price,
-      handle_one_mtr_price,
       zip_one_mtr_price,
       one_zip_runner_price
     } = this.state.materials;
