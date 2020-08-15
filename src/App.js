@@ -112,12 +112,12 @@ class EstimatePrice extends Component {
       one_zip_runner_price
     } = this.state.materials;
     const jute_one_piece_price = this.get_price_per_one_piece(
-        bag_piece_length_in_inches,
-        bag_piece_width_in_inches,
-        jute_one_mtr_length_in_inches,
-        jute_one_mtr_width_in_inches,
-        jute_one_mtr_price
-      ),
+      bag_piece_length_in_inches,
+      bag_piece_width_in_inches,
+      jute_one_mtr_length_in_inches,
+      jute_one_mtr_width_in_inches,
+      jute_one_mtr_price
+    ),
       gazet_price = this.get_price_per_one_piece(
         gazet_lentgh_in_inches,
         gazet_width_in_inches,
@@ -140,16 +140,16 @@ class EstimatePrice extends Component {
         gazet_one_mtr_price
       );
     const jute_price =
-        number_of_bag_pieces * jute_one_piece_price +
-        gazet_price +
-        zip_patti_price,
+      number_of_bag_pieces * jute_one_piece_price +
+      gazet_price +
+      zip_patti_price,
       inches_per_meter = 39.37,
       price =
         jute_price +
         lining_one_piece_price * number_of_lining_pieces +
         one_zip_runner_price * zip_runners_quantity +
         (zip_in_inches / inches_per_meter) * zip_one_mtr_price;
-    let cost = price + price * 0.01 * this.state.making_charge,
+    let cost = price + this.state.making_charge,
       final_price = cost + cost * 0.01 * this.state.margin_percent;
     this.setState({
       cost: parseFloat(cost.toFixed(2)),
@@ -248,17 +248,17 @@ class EstimatePrice extends Component {
             {this.state.price ? (
               <div>
                 <div className="row">
-                  <p className="col-6"> Product cost </p>
+                  <p className="col-8"> cost </p>
                   <p className="font-red"> {this.state.cost} &#8377; </p>
                 </div>
                 <div className="row">
-                  <p className="col-6"> Product price </p>
+                  <p className="col-8"> price </p>
                   <p className="font-red"> {this.state.price} &#8377; </p>
                 </div>
               </div>
             ) : (
-              ""
-            )}
+                ""
+              )}
           </div>
         </div>
       </div>
