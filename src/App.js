@@ -36,7 +36,8 @@ class EstimatePrice extends Component {
         zip_patti_length_in_inches: null,
         zip_patti_width_in_inches: null,
         zip_runners_quantity: null,
-        zip_in_inches: null
+        zip_in_inches: null,
+        handle_length_in_inches: null
       },
       disable_bag_parameters: true
     };
@@ -94,6 +95,7 @@ class EstimatePrice extends Component {
       gazet_width_in_inches,
       lining_length_in_inches,
       lining_width_in_inches,
+      handle_length_in_inches,
       number_of_lining_pieces,
       zip_runners_quantity,
       zip_patti_length_in_inches,
@@ -109,7 +111,8 @@ class EstimatePrice extends Component {
       lining_one_mtr_width_in_inches,
       lining_one_mtr_price,
       zip_one_mtr_price,
-      one_zip_runner_price
+      one_zip_runner_price,
+      handle_one_mtr_price
     } = this.state.materials;
     const jute_one_piece_price = this.get_price_per_one_piece(
       bag_piece_length_in_inches,
@@ -148,7 +151,8 @@ class EstimatePrice extends Component {
         jute_price +
         lining_one_piece_price * number_of_lining_pieces +
         one_zip_runner_price * zip_runners_quantity +
-        (zip_in_inches / inches_per_meter) * zip_one_mtr_price;
+        ((zip_in_inches * zip_one_mtr_price) / inches_per_meter) + 
+        ((handle_length_in_inches * handle_one_mtr_price) / inches_per_meter);
     let cost = price + this.state.making_charge,
       final_price = cost + cost * 0.01 * this.state.margin_percent;
     this.setState({
@@ -189,6 +193,7 @@ class EstimatePrice extends Component {
       <div className="container">
         <div className="row">
           <div className="col-5">
+            <div> <h5> Cost of Materials </h5> </div>
             {material_parameters_control}
             <div className="form-group">
               <button
@@ -207,6 +212,7 @@ class EstimatePrice extends Component {
           </div>
           <div className="col-1 vl"></div>
           <div className="col-5">
+          <div> <h5> Bag parameters </h5> </div>
             <div className="form">
               {bag_parameters_controls}
               <NumericInput
