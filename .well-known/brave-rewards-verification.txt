@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: juteique.com
-Token: 0f95b6b18c3f0142193faa1bd6b081ed065c3d5b1fde9135fdc0a467754f46b2
